@@ -1,4 +1,4 @@
-var es = require('./es');
+var es = require('../lib/es');
 var _ = require('lodash');
 
 module.exports = function(req, res) {
