@@ -22,6 +22,10 @@ export default class DashboardActiveContent extends Component {
     this.dataSource = new DataSource();
   }
 
+  componentDidMount() {
+    this.fetchData(this.state.currentMetric);
+  }
+  
   fetchData (metric) {
     this.setState({ isPending: true, currentMetric:metric });
 
