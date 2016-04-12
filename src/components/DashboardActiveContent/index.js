@@ -16,7 +16,7 @@ export default class DashboardActiveContent extends Component {
     super(props)
     this.state = {
       startDate: moment().subtract(29, 'days'),
-      endDate: moment()
+      endDate: moment(),
       currentMetric: MetricKeys.LOGINS_PER_DAY,
       isPending: true,
       dataSet: null
