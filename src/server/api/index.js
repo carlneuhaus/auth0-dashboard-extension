@@ -5,6 +5,8 @@ var authenticate = require('../lib/middlewares/authenticate');
 module.exports = function() {
   var api = Router();
 
+  api.post('/add-user', authenticate, require('./add_user'));
+
   api.use('/cities-per-user', authenticate, require('./cities_per_user'));
   api.use('/idps-per-user', authenticate, require('./idps_per_user'));
   api.use('/ips-per-user-per-day', authenticate, require('./ips_per_user_per_day'));
