@@ -11,7 +11,7 @@ export default (props) => (
       <h1 className={['col-xs-9', styles.title].join(' ')}>{props.title}</h1>
       <div className="col-xs-3"><DateRangePicker /></div>
     </div>
-
+    
     <MetricChart />
 
     <MetricTable />
