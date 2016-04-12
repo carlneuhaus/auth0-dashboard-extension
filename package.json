@@ -38,7 +38,7 @@
     "webpack-hot-middleware": "^2.10.0"
   },
   "scripts": {
-    "start": "node src/server/index.js"
+    "start": "node index.js"
   },
   "author": "",
   "license": "ISC"

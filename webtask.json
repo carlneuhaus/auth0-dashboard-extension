@@ -1,0 +1,18 @@
+{
+  "title": "Auth0 Analytics Dashboard",
+  "name": "auth0-analytics-dashboard",
+  "version": "1.0.0",
+  "author": "auth0",
+  "description": "This extension gives Auth0 customers the possibility to access to a users analytics dashboard.",
+  "type": "application",
+  "logoUrl": "https://cdn.auth0.com/extensions/auth0-authz/assets/logo.svg",
+  "initialUrlPath": "/admins/login",
+  "repository": "https://github.com/auth0/auth0-authz",
+  "keywords": [
+    "auth0",
+    "extension"
+  ],
+  "auth0": {
+    "scopes": "read:clients read:connections read:rules create:rules update:rules read:users update:users read:device_credentials read:logs"
+  }
+}
