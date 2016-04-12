@@ -1,19 +1,16 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import MetricMenuItem from '../MetricMenuItem';
 import SiteHeader from '../SiteHeader';
+
+import MetricSelector from '../MetricSelector';
+import MetricContent from '../MetricContent';
 
 var styles = require('./styles.css');
 
 const DashboardHeader = (props) => (
   <div className='row'>
     <div className='col-xs-12 content-header'>
-      <h1>{props.title}</h1>
-      <div className='explanation'>
-        <p className='explainer-text-content'>
-          {props.explanation}
-        </p>
-      </div>
+      <h2>{props.title}</h2>
     </div>
   </div>
 );
@@ -35,9 +32,17 @@ export default class AppRoot extends Component {
         <SiteHeader/>
         <DashboardPage>
           <DashboardHeader
-            title="Metrics"
-            explanation="kablooie" />
-            abcde
+            title="Auth0 Analytics" />
+            <div className="row">
+              <div className="col-xs-3">
+                <MetricSelector/>
+              </div>
+              <div className="col-xs-9">
+                <MetricContent
+                  title="Indentity Providers"
+                  />
+              </div>
+            </div>
         </DashboardPage>
       </div>
     );
