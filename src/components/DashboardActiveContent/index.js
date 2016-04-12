@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+
+import moment from 'moment';
 import $ from 'jquery';
 
 import MetricSelector from '../MetricSelector';
@@ -14,6 +15,8 @@ export default class DashboardActiveContent extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      startDate: moment().subtract(29, 'days'),
+      endDate: moment(),
       currentMetric: MetricKeys.LOGINS_PER_DAY,
       isPending: true,
       dataSet: null
@@ -25,7 +28,7 @@ export default class DashboardActiveContent extends Component {
   componentDidMount() {
     this.fetchData(this.state.currentMetric);
   }
-  
+
   fetchData (metric) {
     this.setState({ isPending: true, currentMetric:metric });
 
@@ -50,6 +53,10 @@ export default class DashboardActiveContent extends Component {
     this.fetchData(selectedMetric);
   }
 
+  dateRangeChanged(startDate, endDate) {
+    this.setState({ startDate, endDate });
+  }
+
   render() {
     return (
       <div className={styles.root  + ' row'}>
@@ -62,6 +69,8 @@ export default class DashboardActiveContent extends Component {
             dataSet={this.state.dataSet}
             metricKey={this.state.currentMetric}
             title="Indentity Providers"
+            {...this.state}
+            onDateRangeChange={this.dateRangeChanged.bind(this)}
             />
         </div>
       </div>

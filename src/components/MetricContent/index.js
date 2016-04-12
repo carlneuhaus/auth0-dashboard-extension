@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import DateRangePicker from '../DateRangePicker';
+import MetricDateRangePicker from '../MetricDateRangePicker';
 import MetricChart from '../MetricChart';
 import MetricTable from '../MetricTable';
-
+import moment from 'moment';
 const styles = require('./styles.css');
 
 export default class MetricContent extends Component {
@@ -20,10 +20,12 @@ export default class MetricContent extends Component {
 
   renderContent() {
     return (
-     <div className="">
-        <div className="row">
-          <h1 className={['col-xs-9', styles.title].join(' ')}>{this.state.title}</h1>
-          <div className="col-xs-3"><DateRangePicker /></div>
+      <div>
+        <div>
+          <h1 className={styles.title}>{this.props.title}</h1>
+        </div>
+        <div>
+          <MetricDateRangePicker startDate={this.props.startDate} endDate={this.props.endDate} onDateRangeChange={this.props.onDateRangeChange}/>
         </div>
 
         <MetricChart 
