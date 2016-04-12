@@ -33,6 +33,6 @@ export default class MetricContent extends Component {
   }
 
   render() {
-    return <div>{this.state.isPending ? this.renderLoading() : this.renderContent() }</div>;
+    return <div>{this.props.isPending ? this.renderLoading() : this.renderContent() }</div>;
   }
 };
