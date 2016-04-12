@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-
 
 const MenuItem = (props) => {
   var activeClass = props.isActive ? 'active' : '';
   return <a href="#" onClick={props.onClick} className={"list-group-item " + activeClass}>{props.name}</a>
 }
-
 
 export default class MetricSelector extends Component {
   render() {

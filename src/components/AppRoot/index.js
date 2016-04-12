@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import SiteHeader from '../SiteHeader';
-
-import MetricSelector from '../MetricSelector';
-import MetricContent from '../MetricContent';
+import DashboardActiveContent from '../DashboardActiveContent';
 
 var styles = require('./styles.css');
 
 const DashboardHeader = (props) => (
   <div className='row'>
     <div className='col-xs-12 content-header'>
-      <h2>{props.title}</h2>
+      <h3>{props.title}</h3>
     </div>
   </div>
 );
@@ -33,16 +31,7 @@ export default class AppRoot extends Component {
         <DashboardPage>
           <DashboardHeader
             title="Auth0 Analytics" />
-            <div className="row">
-              <div className="col-xs-3">
-                <MetricSelector/>
-              </div>
-              <div className="col-xs-9">
-                <MetricContent
-                  title="Indentity Providers"
-                  />
-              </div>
-            </div>
+          <DashboardActiveContent />
         </DashboardPage>
       </div>
     );
