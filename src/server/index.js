@@ -4,6 +4,7 @@ var jwtDecode = require('jwt-decode');
 var path = require('path');
 var auth0   = require('auth0-oauth2-express');
 var api = require('./api');
+var ensureRule = require('./lib/ensureRule');
 var app = express();
 
 module.exports = function(options) {
