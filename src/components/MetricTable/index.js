@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 export default (props) => (
-  <table className="table">
+  <table className="table data-table">
     <thead>
       <tr>
         <th>Superheroes</th>

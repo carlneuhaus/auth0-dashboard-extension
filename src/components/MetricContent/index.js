@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
-import DateRangePicker from '../DateRangePicker';
+import MetricDateRangePicker from '../MetricDateRangePicker';
 import MetricChart from '../MetricChart';
 import MetricTable from '../MetricTable';
-
+import moment from 'moment';
 const styles = require('./styles.css');
 
 export default (props) => (
-  <div className="">
-    <div className="row">
-      <h1 className={['col-xs-9', styles.title].join(' ')}>{props.title}</h1>
-      <div className="col-xs-3"><DateRangePicker /></div>
+  <div>
+    <div className="">
+      <h1 className={styles.title}>{props.title}</h1>
+    </div>
+    <div>
+      <MetricDateRangePicker startDate={props.startDate} endDate={props.endDate} onDateRangeChange={props.onDateRangeChange}/>
     </div>
 
     <MetricChart />

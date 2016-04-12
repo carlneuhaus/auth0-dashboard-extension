@@ -18,6 +18,7 @@
     "nconf": "^0.8.4",
     "path": "^0.12.7",
     "react": "^15.0.1",
+    "react-bootstrap-daterangepicker": "^3.0.0",
     "react-dom": "^15.0.1",
     "user-agent-parser": "^0.6.0",
     "xtend": "^4.0.1"
