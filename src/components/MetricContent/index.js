@@ -5,16 +5,34 @@ import MetricTable from '../MetricTable';
 
 const styles = require('./styles.css');
 
-export default (props) => (
-  <div className="">
-    <div className="row">
-      <h1 className={['col-xs-9', styles.title].join(' ')}>{props.title}</h1>
-      <div className="col-xs-3"><DateRangePicker /></div>
-    </div>
-    
-    <MetricChart />
+export default class MetricContent extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isPending: props.isPending,
+      title: props.title
+    };
+  }
 
-    <MetricTable />
+  renderLoading() {
+    return <div className={"spinner spinner-lg is-auth0"}><div className={"circle"}></div></div>;
+  }
 
-  </div>
-);
+  renderContent() {
+    return (
+     <div className="">
+        <div className="row">
+          <h1 className={['col-xs-9', styles.title].join(' ')}>{this.state.title}</h1>
+          <div className="col-xs-3"><DateRangePicker /></div>
+        </div>
+
+        <MetricChart />
+        <MetricTable />
+      </div>
+    )
+  }
+
+  render() {
+    return <div>{this.state.isPending ? this.renderLoading() : this.renderContent() }</div>;
+  }
+};

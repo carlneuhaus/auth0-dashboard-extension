@@ -15,26 +15,40 @@ export default class DashboardActiveContent extends Component {
     super(props)
     this.state = {
       currentMetric: MetricKeys.LOGINS_PER_DAY,
-      isPending: true
+      isPending: true,
+      dataSet: null
     }
 
     this.dataSource = new DataSource();
   }
 
-  selectionChanged (selectedMetric) {
-    this.setState({ isPending: true})
+  fetchData (metric) {
+    this.setState({ isPending: true });
 
-    var dataPromise = this.dataSource.get(selectedMetric);
-    var self = this;
+    if (this.serverRequest) {
+      console.log('aborting pending request')
+      this.serverRequest.abort();
+    }
 
-    dataPromise.then(function (data) {
-      self.setState({ isPending: false, dataSet: data});
-    }).fail(function () {
-      console.error('handle error');
+    this.serverRequest = this.dataSource.get(metric);
+
+    this.serverRequest.then(function (data) {
+      console.log(data)
+      this.setState({ isPending: false, dataSet: data});
+      this.serverRequest = null;
+    }.bind(this)).fail(function (e) {
+      if (e.statusText !== 'abort'){
+        console.error('handle error');
+      }
     });
   }
 
+  selectionChanged (selectedMetric) {
+    this.fetchData(selectedMetric);
+  }
+
   render() {
+    console.log(this.state);
     return (
       <div className={styles.root  + ' row'}>
         <div className="col-xs-3">
@@ -44,6 +58,7 @@ export default class DashboardActiveContent extends Component {
           <MetricContent
             isPending={this.state.isPending}
             dataSet={this.state.dataSet}
+            metricKey={this.state.currentMetric}
             title="Indentity Providers"
             />
         </div>
