@@ -23,7 +23,7 @@ export default class DashboardActiveContent extends Component {
   }
 
   fetchData (metric) {
-    this.setState({ isPending: true });
+    this.setState({ isPending: true, currentMetric:metric });
 
     if (this.serverRequest) {
       console.log('aborting pending request')
@@ -33,7 +33,6 @@ export default class DashboardActiveContent extends Component {
     this.serverRequest = this.dataSource.get(metric);
 
     this.serverRequest.then(function (data) {
-      console.log(data)
       this.setState({ isPending: false, dataSet: data});
       this.serverRequest = null;
     }.bind(this)).fail(function (e) {
@@ -48,7 +47,6 @@ export default class DashboardActiveContent extends Component {
   }
 
   render() {
-    console.log(this.state);
     return (
       <div className={styles.root  + ' row'}>
         <div className="col-xs-3">

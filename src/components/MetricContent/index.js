@@ -26,8 +26,13 @@ export default class MetricContent extends Component {
           <div className="col-xs-3"><DateRangePicker /></div>
         </div>
 
-        <MetricChart />
-        <MetricTable />
+        <MetricChart 
+          dataSet={this.props.dataSet}
+          metricKey={this.props.metricKey} />
+          
+        <MetricTable 
+          dataSet={this.props.dataSet}
+          metricKey={this.props.metricKey} />
       </div>
     )
   }
