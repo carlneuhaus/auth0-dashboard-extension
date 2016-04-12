@@ -5,18 +5,36 @@ import MetricTable from '../MetricTable';
 import moment from 'moment';
 const styles = require('./styles.css');
 
-export default (props) => (
-  <div>
-    <div className="">
-      <h1 className={styles.title}>{props.title}</h1>
-    </div>
-    <div>
-      <MetricDateRangePicker startDate={props.startDate} endDate={props.endDate} onDateRangeChange={props.onDateRangeChange}/>
-    </div>
+export default class MetricContent extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isPending: props.isPending,
+      title: props.title
+    };
+  }
 
-    <MetricChart />
+  renderLoading() {
+    return <div className={"spinner spinner-lg is-auth0"}><div className={"circle"}></div></div>;
+  }
 
-    <MetricTable />
+  renderContent() {
+    return (
+      <div>
+        <div>
+          <h1 className={styles.title}>{props.title}</h1>
+        </div>
+        <div>
+          <MetricDateRangePicker startDate={props.startDate} endDate={props.endDate} onDateRangeChange={props.onDateRangeChange}/>
+        </div>
 
-  </div>
-);
+        <MetricChart />
+        <MetricTable />
+      </div>
+    )
+  }
+
+  render() {
+    return <div>{this.props.isPending ? this.renderLoading() : this.renderContent() }</div>;
+  }
+};
