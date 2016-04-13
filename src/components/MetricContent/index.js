@@ -15,14 +15,19 @@ export default class MetricContent extends Component {
   }
 
   renderLoading() {
-    return <div className={"spinner spinner-lg text-center is-auth0"}><div className={"circle"}></div></div>;
+    return <div className="loader-wrapper"><div className={"spinner spinner-center spinner-lg text-center is-auth0"}><div className={"circle"}></div></div></div>;
   }
 
   renderContent() {
     return (
       <div>
-        <MetricChart />
-        <MetricTable />
+        <MetricChart
+          dataSet={this.props.dataSet}
+          metricKey={this.props.metricKey} />
+
+        <MetricTable
+          dataSet={this.props.dataSet}
+          metricKey={this.props.metricKey} />
       </div>
     )
   }
@@ -31,10 +36,8 @@ export default class MetricContent extends Component {
     return (
       <section>
         <header>
-          <div>
-            <h1 className={styles.title}>{this.props.title}</h1>
-          </div>
-          <div>
+          <div className={styles.titleWrap}>
+            <h3 className={styles.title}>{this.props.title}</h3>
             <MetricDateRangePicker
               startDate={this.props.startDate}
               endDate={this.props.endDate}

@@ -1,0 +1,64 @@
+.breadcrumb {
+  padding: 0;
+  background: none;
+  font-size: 13px;
+}
+
+.breadcrumb a {
+  color: #000;
+  opacity: 0.56;
+}
+
+.header-wrapper > .breadcrumb-wrapper {
+  height:30px;
+}
+
+.header-wrapper > .title-wrapper {
+  padding-bottom:30px;
+}
+
+.chart-selector {
+  height: 100%;
+  background-color: #F5F7F9;
+}
+
+.chart-selector .list-group-item .icon {
+  text-align: center;
+  width: 100%;
+  display: block;
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.chart-selector .list-group-item {
+  border-radius: 0;
+  height: 100px;
+  text-align: center;
+  line-height: 25px;
+  background-color: #F5F7F9;
+  color: black;
+  font-weight: 500;
+  border-bottom-color: #E9EBED;
+  border-left-color: #F5F7F9;
+  border-right-color: #F5F7F9;
+  border-top-color: #E9EBED;
+}
+
+.chart-selector .list-group-item.active {
+  background-color: #C77BB1;
+  border-color: #C77BB1;
+  color: white;
+}
+
+.chart-wrapper {
+  height: 100%;
+  border: 1px solid #EBEDEE;
+  border-left: 0;
+  margin-left: -15px;
+  padding-left: 15px;
+  padding-top: 30px;
+}
+
+.data-grid {
+  
+}

@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import DateRangePicker from 'react-bootstrap-daterangepicker';
 import moment from 'moment';
 
-
 export default class MetricDateRangePicker extends Component {
   constructor(props) {
     super(props);
@@ -43,8 +42,8 @@ export default class MetricDateRangePicker extends Component {
           ranges={ranges}
           alwaysShowCalendars={false}
           >
-          <div className="btn btn-sm">
-            <i className="glyphicon glyphicon-calendar fa fa-calendar"></i>&nbsp;
+          <div className={"btn btn-sm date-picker-launcher"}>
+            <i className="icon-budicon-615"></i>&nbsp;
             {moment(this.state.startDate).format('MMM Do YYYY')} -
             {moment(this.state.endDate).format('MMM Do YYYY')}
             <b className="caret"></b>

@@ -24,11 +24,20 @@ export default class DataSource {
         break;
     }
 
+    endpoint += '?';
+
+    if (startDate) {
+      endpoint += 'from=' + startDate.format();
+    }
+    if (endDate) {
+      endpoint += 'to=' + endDate.format();
+    }
+
     return endpoint;
   }
 
-  get(metric) {
-    let endpoint = this.getMetricEndpoint(metric);
+  get(metric, startDate, endDate) {
+    let endpoint = this.getMetricEndpoint(metric, startDate, endDate);
     return $.get(endpoint);
   }
 }
