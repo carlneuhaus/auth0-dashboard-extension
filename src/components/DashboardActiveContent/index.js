@@ -27,7 +27,7 @@ export default class DashboardActiveContent extends Component {
   }
 
   componentDidMount() {
-    this.fetchData(this.state.currentMetric, this.state.startDate, this.state.endDat);
+    this.fetchData(this.state.currentMetric, this.state.startDate, this.state.endDate);
   }
 
   fetchData(metric, startDate, endDate) {
