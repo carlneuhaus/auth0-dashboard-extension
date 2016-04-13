@@ -26,8 +26,10 @@ info[MetricKeys.IDENTITY_PROVIDERS] = {
 
 info[MetricKeys.CONNECTION_CHURN] = {
   title: 'User Churn By Connection',
-  explanation: 'Ratio of users joining over new 30-day inactive users',
-  usageHint: ''
+  explanation: 'Ratio of  users joining over new 30-day inactive users',
+  usageHint: 'Seeing a high value for a connection? Users of that connection are not sticking around; you may want to',
+  usageHintActionLink: 'https://manage.auth0.com/#/connections/social',
+  usageHintActionTitle: 'consider removing it'
 }
 
 export default info;

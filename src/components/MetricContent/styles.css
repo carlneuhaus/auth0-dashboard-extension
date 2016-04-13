@@ -11,3 +11,13 @@
 .explanation {
   padding-bottom: 1em;
 }
+
+
+.usageHint {
+  font-style: italic;
+}
+
+.usageHintAction {
+  font-weight: bold;
+  text-decoration: none;
+}

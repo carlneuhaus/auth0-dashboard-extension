@@ -3,6 +3,7 @@ import MetricDateRangePicker from '../MetricDateRangePicker';
 import MetricChart from '../MetricChart';
 import MetricTable from '../MetricTable';
 import * as MetricKeys from '../../client/metricKeys';
+import metricInfo from '../../client/metricInfo';
 import moment from 'moment';
 const styles = require('./styles.css');
 
@@ -41,12 +42,29 @@ export default class MetricContent extends Component {
         <MetricChart
           dataSet={this.props.dataSet}
           metricKey={this.props.metricKey} />
-
+        {this.renderUsageHint()}
         <MetricTable
+          title={metricInfo[this.props.metricKey].tableTitle}
           dataSet={this.props.dataSet}
           metricKey={this.props.metricKey} />
       </div>
     )
+  }
+
+  renderExplanation() {
+    if (metricInfo[this.props.metricKey].explanation) {
+      return <h5 className={styles.explanation}>{metricInfo[this.props.metricKey].explanation}</h5>
+    }
+  }
+
+  renderUsageHint() {
+    if (metricInfo[this.props.metricKey].usageHint) {
+      return <p className={styles.usageHint}>
+        {metricInfo[this.props.metricKey].usageHint}
+        &nbsp;
+        <a className={styles.usageHintAction} href={metricInfo[this.props.metricKey].usageHintActionLink}>{metricInfo[this.props.metricKey].usageHintActionTitle}</a>
+      </p>
+    }
   }
 
   render() {
@@ -60,7 +78,7 @@ export default class MetricContent extends Component {
               endDate={this.props.endDate}
               onDateRangeChange={this.props.onDateRangeChange} />
           </div>
-          <h5 className={styles.explanation}>{this.metricExplanation(this.props.key)}</h5>
+          {this.renderExplanation()}
         </header>
         {this.props.isPending ? this.renderLoading() : this.renderContent() }
       </section>
