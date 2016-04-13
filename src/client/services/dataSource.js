@@ -27,10 +27,11 @@ export default class DataSource {
     endpoint += '?';
 
     if (startDate) {
-      endpoint += 'from=' + startDate.format();
+      endpoint += 'from=' + startDate.format('YYYY-MM-DD');
+      endpoint += '&';
     }
     if (endDate) {
-      endpoint += 'to=' + endDate.format();
+      endpoint += 'to=' + endDate.format('YYYY-MM-DD');
     }
 
     return endpoint;

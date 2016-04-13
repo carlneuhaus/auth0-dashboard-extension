@@ -16,7 +16,7 @@ export default class LoginsPerDayChart extends Component {
     
     var chartData = this.props.dataSet.aggregations.reduce(function(prev, curr){
       
-      prev.labels.push(moment(curr.key).format('YYYY-MM'));
+      prev.labels.push(moment(curr.key).format('YYYY-MM-DD'));
       prev.datasets[0].data.push(_.sumBy(curr.buckets, 'count')/curr.buckets.length)
       prev.datasets[2].data.push(_.sumBy(curr.buckets, 'count'))
       prev.datasets[1].data.push(avg);

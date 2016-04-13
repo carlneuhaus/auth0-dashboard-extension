@@ -17,7 +17,7 @@ export default class LoginsPerSignupChart extends Component {
 
     var chartData = this.props.dataSet.reduce(function(prev, curr){
       
-      prev.labels.push(moment(curr.key).format('YYYY-MM'));
+      prev.labels.push(moment(curr.key).format('YYYY-MM-DD'));
       prev.datasets[0].data.push(curr.logins)
       prev.datasets[2].data.push(curr.signups)
       prev.datasets[1].data.push(curr.ratio);

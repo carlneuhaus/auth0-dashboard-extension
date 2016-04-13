@@ -41,6 +41,21 @@ module.exports = function(req,res) {
     "type":"signup",
     "body": {
       "size":0,
+      "query": {
+        "filtered": {
+          "query": {
+              "match_all": {}
+          },
+          "filter": {
+              "range": {
+                  "date": {
+                      "gte": from.format(),
+                      "lte": to.format()
+                  }
+              }
+          }
+        }
+      },
       "aggs" : {
         "signups_per_day" : {
           "date_histogram" : { 
