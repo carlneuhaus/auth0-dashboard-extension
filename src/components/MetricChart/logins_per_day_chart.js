@@ -37,8 +37,6 @@ export default class LoginsPerDayChart extends Component {
 
 
     return (<div>
-      <h2>Logins/day</h2>
-
         <LineChart
           margins= {margins}
           title={title}

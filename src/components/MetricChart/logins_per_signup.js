@@ -45,8 +45,6 @@ export default class LoginsPerSignupChart extends Component {
 
 
     return (<div>
-      <h2>Logins/signups</h2>
-
         <LineChart
           margins= {margins}
           title={title}
