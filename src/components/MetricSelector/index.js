@@ -23,7 +23,11 @@ export default class MetricSelector extends Component {
   }
 
   renderMenuItem(metricKey) {
-    return <MenuItem key={metricKey} name={metricInfo[metricKey].title} isActive={this.props.metricKey === metricKey} onClick={this.onClick.bind(this, metricKey)}/>
+    return <MenuItem
+            key={metricKey}
+            name={metricInfo[metricKey].title}
+            isActive={this.props.metricKey === metricKey}
+            onClick={this.onClick.bind(this, metricKey)} />
   }
   render() {
 
