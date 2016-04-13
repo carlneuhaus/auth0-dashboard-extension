@@ -2,34 +2,39 @@ import React, { Component } from 'react';
 
 const styles = require('./styles.css');
 
-export default (props) => (
-  <div>
-    <div className={styles.summary}>
-      <span>On detail:</span>
-    </div>
-    <div className={styles.grid}>
-      <table>
-        <thead>
-          <tr>
-            <th>Superheroes</th>
-            <th>Superpower</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Superman</td>
-            <td>Flight</td>
-          </tr>
-          <tr>
-            <td>Batman</td>
-            <td>Utility Belt</td>
-          </tr>
-          <tr>
-            <td>@german</td>
-            <td><em>Secret</em></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-);
+export default class MetricTable extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      dataSet: props.dataSet
+    };
+  }
+
+  render() {
+    
+    if (!this.props.dataSet.users) {
+      return (<div></div>);
+    }
+    var rows = [];
+    this.props.dataSet.users.forEach(function(user){
+      rows.push(<tr><td>{user}</td></tr>);
+    });
+
+    return (<div>
+            <div className={styles.summary}>
+              <span>On detail:</span>
+            </div>
+            <div className={styles.grid}>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Users over AVG</th>
+                  </tr>
+                </thead>
+                <tbody>{rows}</tbody>
+              </table>
+            </div>
+          </div>);
+  }
+
+};

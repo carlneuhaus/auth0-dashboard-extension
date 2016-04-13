@@ -15,11 +15,11 @@ export default class LoginsPerSignupChart extends Component {
 
   var chartData = this.props.dataSet;
 
-
   var width = 700,
       height = 300,
       margins = {left: 100, right: 100, top: 50, bottom: 50},
       title = "User sample",
+      xScale = 'time',
 
     chartSeries = [
       {
@@ -53,6 +53,7 @@ export default class LoginsPerSignupChart extends Component {
           height={height}
           chartSeries={chartSeries}
           x={x}
+          xScale= {xScale}
         />
 
     </div>)

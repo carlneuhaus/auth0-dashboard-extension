@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import _ from 'lodash';
 var LineChart = require('react-d3-basic').LineChart;
 
 export default class LoginsPerDayChart extends Component {
@@ -11,10 +11,12 @@ export default class LoginsPerDayChart extends Component {
   }
 
   render() {
+    var avg = this.props.dataSet.avg;
     var chartData = this.props.dataSet.aggregations.map(function(day){
       return {
         time:new Date(day.key),
-        value:day.buckets[0].count
+        value:_.sumBy(day.buckets, 'count')/day.buckets.length,
+        avg: avg
       }
     });
 
@@ -22,12 +24,18 @@ export default class LoginsPerDayChart extends Component {
       height = 300,
       margins = {left: 100, right: 100, top: 50, bottom: 50},
       title = "User sample",
+      xScale = 'time',
 
     chartSeries = [
       {
         field: 'value',
         name: 'Count',
         color: '#FF0000'
+      },
+      {
+        field: 'avg',
+        name: 'Avg',
+        color: '#00FF00'
       }
     ],
 
@@ -44,6 +52,7 @@ export default class LoginsPerDayChart extends Component {
           width={width}
           height={height}
           chartSeries={chartSeries}
+          xScale= {xScale}
           x={x}
         />
 

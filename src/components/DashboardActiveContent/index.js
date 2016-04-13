@@ -35,9 +35,7 @@ export default class DashboardActiveContent extends Component {
       this.state.endDate !== prevState.endDate ||
       this.state.currentMetric !== prevState.currentMetric) {
       this.fetchData(this.state.currentMetric, this.state.startDate, this.state.endDate);
-    } else {
-      console.log('didnt change');
-    }
+    } 
   }
 
   fetchData(metric, startDate, endDate) {
@@ -51,7 +49,6 @@ export default class DashboardActiveContent extends Component {
     this.serverRequest = this.dataSource.get(metric, startDate, endDate);
 
     this.serverRequest.then(function (data) {
-      console.log('serverRequest',data)
       this.setState({ isPending: false, dataSet: data});
       this.serverRequest = null;
     }.bind(this)).fail(function (e) {
