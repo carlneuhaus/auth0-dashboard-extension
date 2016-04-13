@@ -17,7 +17,7 @@ export default class MetricTable extends Component {
     }
     var rows = [];
     this.props.dataSet.users.forEach(function(user){
-      rows.push(<tr><td>{user}</td></tr>);
+      rows.push(<tr key={user}><td>{user}</td></tr>);
     });
 
     return (<div>

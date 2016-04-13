@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import _ from 'lodash';
-var BarChart = require('react-d3-basic').BarChart;
+import {Bar as BarChart} from 'react-chartjs'
 
 export default class IdPsPerUserChart extends Component {
   constructor(props) {
@@ -24,44 +24,41 @@ export default class IdPsPerUserChart extends Component {
       
     }, {});
 
-    var data = _.keys(chartData).map(function(key){
+    chartData = _.keys(chartData).map(function(key){
       return {
         key:key,
         value:chartData[key]
       };
     })
 
-    var width = 700,
-    height = 400,
-    title = "Bar Chart",
-    chartSeries = [
-      {
-        field: 'value',
-        name: '# Logins'
-      }
-    ],
-    x = function(d) {
-      return d.key;
-    },
-    xScale = 'ordinal',
-    xLabel = "Letter",
-    yLabel = "Frequency",
-    yTicks = [10];
+    chartData = chartData.reduce(function(prev, curr){
+      
+      prev.labels.push(curr.key);
+      prev.datasets[0].data.push(curr.value)
 
-    return (<div>
-              <BarChart
-                title= {title}
-                data= {data}
-                width= {width}
-                height= {height}
-                chartSeries = {chartSeries}
-                x= {x}
-                xLabel= {xLabel}
-                xScale= {xScale}
-                yTicks= {yTicks}
-                yLabel = {yLabel}
-              />
-            </div>)
+      return prev;
+    }, {
+        labels:[],
+        datasets: [
+          {
+            label: "Provider",
+            fillColor: "rgba(255, 154, 87, .1)",
+            strokeColor: "rgba(255, 154, 87, 1)",
+            pointColor: "rgba(255, 154, 87, 1)",
+            pointStrokeColor: "rgba(255, 154, 87, 1)",
+            pointHighlightFill: "rgba(255, 154, 87, 1)",
+            pointHighlightStroke: "rgba(220,220,220,1)",
+            data: []
+          }
+        ]});
+
+    var chartOptions = {
+      responsive: true,
+      height: 300,
+      scaleBeginAtZero: true 
+    };
+
+    return (<BarChart data={chartData} options={chartOptions} height="100" />)
 
   }
 
