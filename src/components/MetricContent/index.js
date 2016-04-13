@@ -15,19 +15,12 @@ export default class MetricContent extends Component {
   }
 
   renderLoading() {
-    return <div className={"spinner spinner-lg is-auth0"}><div className={"circle"}></div></div>;
+    return <div className={"spinner spinner-lg text-center is-auth0"}><div className={"circle"}></div></div>;
   }
 
   renderContent() {
     return (
       <div>
-        <div>
-          <h1 className={styles.title}>{this.props.title}</h1>
-        </div>
-        <div>
-          <MetricDateRangePicker startDate={this.props.startDate} endDate={this.props.endDate} onDateRangeChange={this.props.onDateRangeChange}/>
-        </div>
-
         <MetricChart 
           dataSet={this.props.dataSet}
           metricKey={this.props.metricKey} />
@@ -35,11 +28,27 @@ export default class MetricContent extends Component {
         <MetricTable 
           dataSet={this.props.dataSet}
           metricKey={this.props.metricKey} />
+
       </div>
     )
   }
 
   render() {
-    return <div>{this.props.isPending ? this.renderLoading() : this.renderContent() }</div>;
+    return (
+      <section>
+        <header>
+          <div>
+            <h1 className={styles.title}>{this.props.title}</h1>
+          </div>
+          <div>
+            <MetricDateRangePicker
+              startDate={this.props.startDate}
+              endDate={this.props.endDate}
+              onDateRangeChange={this.props.onDateRangeChange} />
+          </div>
+        </header>
+        {this.props.isPending ? this.renderLoading() : this.renderContent() }
+      </section>
+    )
   }
 };

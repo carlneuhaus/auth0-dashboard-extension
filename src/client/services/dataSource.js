@@ -3,7 +3,7 @@ import $ from 'jquery';
 import * as MetricKeys from '../metricKeys'
 
 export default class DataSource {
-  getMetricEndpoint(metricKey) {
+  getMetricEndpoint(metricKey, startDate, endDate) {
     let endpoint;
 
     switch (metricKey) {

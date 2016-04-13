@@ -7,6 +7,7 @@ import MetricSelector from '../MetricSelector';
 import MetricContent from '../MetricContent';
 
 import * as MetricKeys from '../../client/metricKeys';
+import metricTitle from '../../client/metricTitle';
 import DataSource from '../../client/services/dataSource';
 
 var styles = require('./styles.css');
@@ -26,10 +27,18 @@ export default class DashboardActiveContent extends Component {
   }
 
   componentDidMount() {
-    this.fetchData(this.state.currentMetric);
+    this.fetchData(this.state.currentMetric, this.state.startDate, this.state.endDate);
   }
 
-  fetchData (metric) {
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.startDate !== prevState.startDate ||
+      this.state.endDate !== prevState.endDate ||
+      this.state.currentMetric !== prevState.currentMetric) {
+      this.fetchData(this.state.currentMetric, this.state.startDate, this.state.endDate);
+    }
+  }
+
+  fetchData(metric, startDate, endDate) {
     this.setState({ isPending: true, currentMetric:metric });
 
     if (this.serverRequest) {
@@ -37,7 +46,7 @@ export default class DashboardActiveContent extends Component {
       this.serverRequest.abort();
     }
 
-    this.serverRequest = this.dataSource.get(metric);
+    this.serverRequest = this.dataSource.get(metric, startDate, endDate);
 
     this.serverRequest.then(function (data) {
       this.setState({ isPending: false, dataSet: data});
@@ -50,7 +59,7 @@ export default class DashboardActiveContent extends Component {
   }
 
   selectionChanged (selectedMetric) {
-    this.fetchData(selectedMetric);
+    this.setState({ currentMetric: selectedMetric });
   }
 
   dateRangeChanged(startDate, endDate) {
@@ -61,15 +70,19 @@ export default class DashboardActiveContent extends Component {
     return (
       <div className={styles.root  + ' row'}>
         <div className="col-xs-3">
-          <MetricSelector initialMetric={MetricKeys.LOGINS_PER_DAY} onSelectionChanged={this.selectionChanged.bind(this)}/>
+          <MetricSelector
+            metricKey={this.state.currentMetric}
+            onSelectionChanged={this.selectionChanged.bind(this)}
+            />
         </div>
         <div className="col-xs-9">
           <MetricContent
             isPending={this.state.isPending}
             dataSet={this.state.dataSet}
             metricKey={this.state.currentMetric}
-            title="Indentity Providers"
-            {...this.state}
+            title={metricTitle(this.state.currentMetric)}
+            startDate={this.state.startDate}
+            endDate={this.state.endDate}
             onDateRangeChange={this.dateRangeChanged.bind(this)}
             />
         </div>
