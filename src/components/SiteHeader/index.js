@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 export default (props) => (
-  <header className='dashboard-header'>
+  <header className='site-header dashboard-header'>
     <nav className='navbar navbar-default' role='navigation'>
       <div className='container'>
         <div className='navbar-header'>
@@ -15,9 +15,9 @@ export default (props) => (
             <li><a target='_blank' href='https://auth0.com/docs'>Documentation</a></li>
             <li className='dropdown'>
               <span className='btn-dro btn-username' role='button' data-toggle='dropdown' data-target='#'>
-                <img className='picture avatar' src='https://secure.gravatar.com/avatar/a12075a065d2c41ac447dcffc1398d43?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fro.png'/>
-                <span className='username-text truncate'>Username</span>
-                <i className='icon-budicon-460'></i>
+                <img className='picture avatar' style={{ marginTop: "4px" }} src='https://secure.gravatar.com/avatar/a12075a065d2c41ac447dcffc1398d43?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fro.png'/>
+                <span className='username-text truncate' style={{ marginTop: "4px" }}>Username</span>
+                <i className='icon-budicon-460' style={{ top: "-4px" }}></i>
               </span>
               <ul className='dropdown-menu animated' role='menu' aria-labelledby='dLabel'>
                 <li role='presentation'>
