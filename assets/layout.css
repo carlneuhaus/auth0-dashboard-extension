@@ -22,11 +22,19 @@
   background-color: #F5F7F9;
 }
 
+.chart-selector .list-group-item .icon {
+  text-align: center;
+  width: 100%;
+  display: block;
+  margin-top: 20px;
+  font-size: 20px;
+}
+
 .chart-selector .list-group-item {
   border-radius: 0;
   height: 100px;
   text-align: center;
-  line-height: 75px;
+  line-height: 25px;
   background-color: #F5F7F9;
   color: black;
   font-weight: 500;

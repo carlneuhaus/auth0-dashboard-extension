@@ -4,7 +4,12 @@ import * as MetricKeys from '../../client/metricKeys';
 
 const MenuItem = (props) => {
   var activeClass = props.isActive ? 'active' : '';
-  return <a href="#" onClick={props.onClick} className={"list-group-item " + activeClass}>{props.name}</a>
+  return (
+    <a href="#" onClick={props.onClick} className={"list-group-item " + activeClass}>
+      <i className='icon-budicon-497 icon'/>
+      <span className='title'>{props.name}</span>
+    </a>
+  )
 }
 
 export default class MetricSelector extends Component {
