@@ -11,8 +11,8 @@ export default class MetricTable extends Component {
   }
 
   render() {
-    
-    if (!this.props.dataSet.users) {
+
+    if (!this.props.dataSet || !this.props.dataSet.users) {
       return (<div></div>);
     }
     var rows = [];
