@@ -52,10 +52,10 @@ export default class DataSource {
     var dates = [];
     var current = moment(from);
 
-    dates.push(from.format('MM Do'));
+    dates.push(from.format('YYYY-MM-DD'));
 
     while(entries-- > 0) {
-      dates.push(from.add(1, 'day').format('MM Do'));
+      dates.push(from.add(1, 'day').format('YYYY-MM-DD'));
     }
 
     return dates;
