@@ -28,11 +28,11 @@ export default class LoginsPerSignupChart extends Component {
         datasets: [
           {
             label: "Logins",
-            fillColor: "rgba(255, 154, 87, .1)",
-            strokeColor: "rgba(255, 154, 87, 1)",
-            pointColor: "rgba(255, 154, 87, 1)",
-            pointStrokeColor: "rgba(255, 154, 87, 1)",
-            pointHighlightFill: "rgba(255, 154, 87, 1)",
+            fillColor: "rgba(235, 84, 36, .1)",
+            strokeColor: "rgba(235, 84, 36, 1)",
+            pointColor: "rgba(235, 84, 36, 1)",
+            pointStrokeColor: "rgba(235, 84, 36, 1)",
+            pointHighlightFill: "rgba(235, 84, 36, 1)",
             pointHighlightStroke: "rgba(220,220,220,1)",
             data: []
           },
@@ -48,11 +48,11 @@ export default class LoginsPerSignupChart extends Component {
           },
           {
             label: "Signups",
-            fillColor: "rgba(87, 154, 255, .1)",
-            strokeColor: "rgba(87, 154, 255, 1)",
-            pointColor: "rgba(82, 154, 255, 1)",
-            pointStrokeColor: "rgba(82, 154, 255, 1)",
-            pointHighlightFill: "rgba(82, 154, 255, 1)",
+            fillColor: "rgba(22, 33, 77, .1)",
+            strokeColor: "rgba(22, 33, 77, 1)",
+            pointColor: "rgba(22, 33, 77, 1)",
+            pointStrokeColor: "rgba(22, 33, 77, 1)",
+            pointHighlightFill: "rgba(22, 33, 77, 1)",
             pointHighlightStroke: "rgba(220,220,220,1)",
             data: []
           }

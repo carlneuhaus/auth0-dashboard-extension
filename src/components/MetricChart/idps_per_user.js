@@ -42,11 +42,11 @@ export default class IdPsPerUserChart extends Component {
         datasets: [
           {
             label: "Provider",
-            fillColor: "rgba(255, 154, 87, .1)",
-            strokeColor: "rgba(255, 154, 87, 1)",
-            pointColor: "rgba(255, 154, 87, 1)",
-            pointStrokeColor: "rgba(255, 154, 87, 1)",
-            pointHighlightFill: "rgba(255, 154, 87, 1)",
+            fillColor: "rgba(234, 202, 44, .1)",
+            strokeColor: "rgba(234, 202, 44, 1)",
+            pointColor: "rgba(234, 202, 44, 1)",
+            pointStrokeColor: "rgba(234, 202, 44, 1)",
+            pointHighlightFill: "rgba(234, 202, 44, 1)",
             pointHighlightStroke: "rgba(220,220,220,1)",
             data: []
           }
