@@ -20,6 +20,7 @@ export default class MetricSelector extends Component {
         <MenuItem name="Logins Per Day" isActive={this.props.metricKey === MetricKeys.LOGINS_PER_DAY} onClick={this.onClick.bind(this, MetricKeys.LOGINS_PER_DAY)}/>
         <MenuItem name="Logins Per Signup" isActive={this.props.metricKey === MetricKeys.LOGINS_PER_SIGNUP} onClick={this.onClick.bind(this, MetricKeys.LOGINS_PER_SIGNUP)}/>
         <MenuItem name="Geolocation" isActive={this.props.metricKey === MetricKeys.GEOLOCATION} onClick={this.onClick.bind(this, MetricKeys.GEOLOCATION)}/>
+        <MenuItem name="Geolocation" isActive={this.props.metricKey === MetricKeys.GEOLOCATION} onClick={this.onClick.bind(this, MetricKeys.GEOLOCATION)}/>
         <MenuItem name="Identity Providers" isActive={this.props.metricKey === MetricKeys.IDENTITY_PROVIDERS} onClick={this.onClick.bind(this, MetricKeys.IDENTITY_PROVIDERS)}/>
         <MenuItem name="Logs" isActive={this.props.metricKey === MetricKeys.LOGS} onClick={this.onClick.bind(this, MetricKeys.LOGS)}/>
       </ul>

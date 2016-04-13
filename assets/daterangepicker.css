@@ -230,3 +230,7 @@
   .daterangepicker .calendar.left {
     clear: none; } }
 )
+
+.daterangepicker .calendar-table td {
+  padding: initial;
+}

@@ -8,8 +8,8 @@ export default function(key) {
       return 'Geolocation';
     case MetricKeys.LOGINS_PER_SIGNUP:
       return 'Logins Per Signup';
-    case MetricKeys.LOGS:
-      return 'Logs';
+    case MetricKeys.CITIES_PER_DAY:
+      return 'Cities Per Day';
     case MetricKeys.IDENTITY_PROVIDERS:
       return 'Identity Providers';
   }
