@@ -70,23 +70,25 @@ export default class DashboardActiveContent extends Component {
   render() {
     console.log(this.state);
     return (
-      <div className={styles.root  + ' row'}>
-        <div className="col-xs-3">
-          <MetricSelector
-            metricKey={this.state.currentMetric}
-            onSelectionChanged={this.selectionChanged.bind(this)}
-            />
-        </div>
-        <div className="col-xs-9">
-          <MetricContent
-            isPending={this.state.isPending}
-            dataSet={this.state.dataSet}
-            metricKey={this.state.currentMetric}
-            title={metricTitle(this.state.currentMetric)}
-            startDate={this.state.startDate}
-            endDate={this.state.endDate}
-            onDateRangeChange={this.dateRangeChanged.bind(this)}
-            />
+      <div className="col-xs-12">
+        <div className={styles.root  + ' row'}>
+          <div className="col-xs-3">
+            <MetricSelector
+              metricKey={this.state.currentMetric}
+              onSelectionChanged={this.selectionChanged.bind(this)}
+              />
+          </div>
+          <div className="col-xs-9">
+            <MetricContent
+              isPending={this.state.isPending}
+              dataSet={this.state.dataSet}
+              metricKey={this.state.currentMetric}
+              title={metricTitle(this.state.currentMetric)}
+              startDate={this.state.startDate}
+              endDate={this.state.endDate}
+              onDateRangeChange={this.dateRangeChanged.bind(this)}
+              />
+          </div>
         </div>
       </div>
     )
