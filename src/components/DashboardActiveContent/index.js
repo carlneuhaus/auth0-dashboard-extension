@@ -35,11 +35,13 @@ export default class DashboardActiveContent extends Component {
       this.state.endDate !== prevState.endDate ||
       this.state.currentMetric !== prevState.currentMetric) {
       this.fetchData(this.state.currentMetric, this.state.startDate, this.state.endDate);
+    } else {
+      console.log('didnt change');
     }
   }
 
   fetchData(metric, startDate, endDate) {
-    this.setState({ isPending: true, currentMetric:metric });
+    this.setState({ isPending: true, dataSet: null });
 
     if (this.serverRequest) {
       console.log('aborting pending request')
@@ -49,6 +51,7 @@ export default class DashboardActiveContent extends Component {
     this.serverRequest = this.dataSource.get(metric, startDate, endDate);
 
     this.serverRequest.then(function (data) {
+      console.log('serverRequest',data)
       this.setState({ isPending: false, dataSet: data});
       this.serverRequest = null;
     }.bind(this)).fail(function (e) {
@@ -59,14 +62,15 @@ export default class DashboardActiveContent extends Component {
   }
 
   selectionChanged (selectedMetric) {
-    this.setState({ currentMetric: selectedMetric });
+    this.setState({ currentMetric: selectedMetric, isPending:true });
   }
 
   dateRangeChanged(startDate, endDate) {
-    this.setState({ startDate, endDate });
+    this.setState({ startDate, endDate, isPending:true });
   }
 
   render() {
+    console.log('render',this.state);
     return (
       <div className={styles.root  + ' row'}>
         <div className="col-xs-3">

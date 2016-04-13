@@ -13,7 +13,7 @@ export default class LoginsPerSignupChart extends Component {
 
   render() {
 
-    var chartData = this.props.dataSet;
+  var chartData = this.props.dataSet;
 
 
   var width = 700,
