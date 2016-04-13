@@ -48,8 +48,6 @@ export default class IdPsPerUserChart extends Component {
     yLabel = "Frequency",
     yTicks = [10];
 
-
-
     return (<div>
               <BarChart
                 title= {title}

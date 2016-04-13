@@ -62,7 +62,7 @@ export default class DashboardActiveContent extends Component {
     this.setState({ currentMetric: selectedMetric, isPending:true });
   }
 
-  dateRangeChanged(startDate, endDate) {
+  dateRangeChanged(startDate, endDate) { 
     this.setState({ startDate, endDate, isPending:true });
   }
 

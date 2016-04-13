@@ -31,3 +31,7 @@
 .loader-wrapper > .spinner {
   top: 25%;
 }
+
+.gmap {
+  height: 300px;
+}
