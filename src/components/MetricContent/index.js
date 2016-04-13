@@ -35,7 +35,7 @@ export default class MetricContent extends Component {
     return <div className="loader-wrapper"><div className={"spinner spinner-center spinner-lg text-center is-auth0"}><div className={"circle"}></div></div></div>;
   }
 
-  renderContent() {
+  renderCharts() {
     return (
       <div>
         <MetricChart
@@ -46,6 +46,16 @@ export default class MetricContent extends Component {
           dataSet={this.props.dataSet}
           metricKey={this.props.metricKey} />
       </div>
+    )
+  }
+
+  renderNoData () {
+    return (<div className="no-data">We found no data for the selected time period</div>)
+  }
+  
+  renderContent() {
+    return (
+      <div>{!this.props.dataSet.dates && !this.props.dataSet.avg ? this.renderNoData() : this.renderCharts() }</div>
     )
   }
 
