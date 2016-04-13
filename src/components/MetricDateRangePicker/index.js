@@ -40,7 +40,7 @@ export default class MetricDateRangePicker extends Component {
           onEvent={this.handleEvent.bind(this)}
           startDate={this.state.startDate}
           endDate={this.state.endDate}
-          opens="right"
+          opens="left"
           >
           <div className="btn btn-sm">
             <i className="glyphicon glyphicon-calendar fa fa-calendar"></i>&nbsp;

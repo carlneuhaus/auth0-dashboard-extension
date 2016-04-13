@@ -25,7 +25,10 @@ export default class MetricContent extends Component {
           <h1 className={styles.title}>{this.props.title}</h1>
         </div>
         <div>
-          <MetricDateRangePicker startDate={this.props.startDate} endDate={this.props.endDate} onDateRangeChange={this.props.onDateRangeChange}/>
+          <MetricDateRangePicker
+            startDate={this.props.startDate}
+            endDate={this.props.endDate}
+            onDateRangeChange={this.props.onDateRangeChange} />
         </div>
 
         <MetricChart />
