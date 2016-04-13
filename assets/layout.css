@@ -44,6 +44,13 @@
   border-top-color: #E9EBED;
 }
 
+.action-dialog {
+  background-color: #F5F7F9;
+  font-size: 13px;
+  height: 60px;
+  padding-top: 10px;
+}
+
 .chart-selector .list-group-item.active {
   background-color: #C77BB1;
   border-color: #C77BB1;

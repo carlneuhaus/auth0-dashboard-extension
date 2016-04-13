@@ -59,11 +59,12 @@ export default class MetricContent extends Component {
 
   renderUsageHint() {
     if (metricInfo[this.props.metricKey].usageHint) {
-      return <p className={styles.usageHint}>
-        {metricInfo[this.props.metricKey].usageHint}
-        &nbsp;
-        <a className={styles.usageHintAction} href={metricInfo[this.props.metricKey].usageHintActionLink}>{metricInfo[this.props.metricKey].usageHintActionTitle}</a>
-      </p>
+      return <div className="action-dialog"><p className={styles.usageHint}>
+          <strong> What does this mean? </strong>
+          {metricInfo[this.props.metricKey].usageHint}
+          &nbsp;
+          <a className={styles.usageHintAction} href={metricInfo[this.props.metricKey].usageHintActionLink}>{metricInfo[this.props.metricKey].usageHintActionTitle}</a>
+        </p></div>
     }
   }
 
@@ -73,7 +74,7 @@ export default class MetricContent extends Component {
 
   renderContent() {
     return (
-      <div>{!this.props.dataSet.dates && !this.props.dataSet.avg ? this.renderNoData() : this.renderCharts() }</div>
+      <div>{(!this.props.dataSet || (!this.props.dataSet.dates && !this.props.dataSet.length && (this.props.dataSet.aggregations && !this.props.dataSet.aggregations.length))) ? this.renderNoData() : this.renderCharts() }</div>
     )
   }
 

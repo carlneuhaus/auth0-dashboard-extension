@@ -14,10 +14,10 @@
 
 
 .usageHint {
-  font-style: italic;
+  line-height: 50px;
+  text-align: center;
 }
 
 .usageHintAction {
-  font-weight: bold;
   text-decoration: none;
 }
