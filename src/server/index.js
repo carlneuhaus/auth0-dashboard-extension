@@ -57,7 +57,7 @@ module.exports = function(options) {
     }));
 
   app.get('/', function (req, res) {
-    res.send('<html><head><link href="https://cdn.auth0.com/manage/v0.3.973/css/index.min.css" rel="stylesheet" /><link href="https://cdn.auth0.com/styleguide/latest/index.css" rel="stylesheet" /><link href="assets/daterangepicker.css" rel="stylesheet" /><link href="assets/main.css" rel="stylesheet" /></head><body class="a0-extension"><div id="app-container">Loading</div><script src=\'/assets/client.js\'></script></body></html>');
+    res.send('<html><head><link href="https://cdn.auth0.com/manage/v0.3.973/css/index.min.css" rel="stylesheet" /><link href="https://cdn.auth0.com/styleguide/latest/index.css" rel="stylesheet" /><link href="assets/daterangepicker.css" rel="stylesheet" /><link href="assets/layout.css" rel="stylesheet" /><link href="assets/main.css" rel="stylesheet" /></head><body class="a0-extension"><div id="app-container">Loading</div><script src=\'/assets/client.js\'></script></body></html>');
   });
 
   app.use('/assets', express.static('assets'));
