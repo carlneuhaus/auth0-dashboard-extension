@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import MetricDateRangePicker from '../MetricDateRangePicker';
 import MetricChart from '../MetricChart';
 import MetricTable from '../MetricTable';
+import * as MetricKeys from '../../client/metricKeys';
 import moment from 'moment';
 const styles = require('./styles.css');
 
@@ -13,6 +14,22 @@ export default class MetricContent extends Component {
       title: props.title
     };
   }
+
+  metricExplanation(key) {
+    switch(key) {
+      case MetricKeys.LOGINS_PER_DAY:
+        return 'wbacd';
+      case MetricKeys.GEOLOCATION:
+        return 'Geolocation';
+      case MetricKeys.LOGINS_PER_SIGNUP:
+        return 'Logins Per Signup';
+      case MetricKeys.LOGS:
+        return 'Logs';
+      case MetricKeys.IDENTITY_PROVIDERS:
+        return 'Identity Providers';
+    }
+  };
+
 
   renderLoading() {
     return <div className="loader-wrapper"><div className={"spinner spinner-center spinner-lg text-center is-auth0"}><div className={"circle"}></div></div></div>;
@@ -43,6 +60,7 @@ export default class MetricContent extends Component {
               endDate={this.props.endDate}
               onDateRangeChange={this.props.onDateRangeChange} />
           </div>
+          <h5 className={styles.explanation}>{this.metricExplanation(this.props.key)}</h5>
         </header>
         {this.props.isPending ? this.renderLoading() : this.renderContent() }
       </section>

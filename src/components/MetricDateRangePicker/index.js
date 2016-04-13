@@ -43,7 +43,7 @@ export default class MetricDateRangePicker extends Component {
           alwaysShowCalendars={false}
           >
           <div className={"btn btn-sm date-picker-launcher"}>
-            <i className="icon-budicon-615"></i>&nbsp;
+            <i className="icon-budicon-629"></i>&nbsp;
             {moment(this.state.startDate).format('MMM Do YYYY')} -
             {moment(this.state.endDate).format('MMM Do YYYY')}
             <b className="caret"></b>

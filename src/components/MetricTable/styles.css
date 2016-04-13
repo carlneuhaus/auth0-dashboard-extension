@@ -37,3 +37,8 @@
   border-top: 1px solid #E4E4E4;
   font-size: 13px;
 }
+.exportButtonContainer {
+  display: inline-block;
+  margin-top: 16px;
+  margin-right: 30px;
+}
