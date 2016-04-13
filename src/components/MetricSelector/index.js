@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import * as MetricKeys from '../../client/metricKeys';
 
+var styles = require('./styles.css');
+
 const MenuItem = (props) => {
   var activeClass = props.isActive ? 'active' : '';
   return (
-    <a href="#" onClick={props.onClick} className={"list-group-item " + activeClass}>
+    <a href="#" onClick={props.onClick} className={[styles.menuItem, "list-group-item " + activeClass].join(' ')}>
       <i className='icon-budicon-497 icon'/>
       <span className='title'>{props.name}</span>
     </a>

@@ -5,5 +5,9 @@
 }
 
 .titleWrap {
-  padding-bottom: 20px;
+  padding-bottom: 1em;
+}
+
+.explanation {
+  padding-bottom: 1em;
 }
