@@ -7,7 +7,7 @@ import MetricSelector from '../MetricSelector';
 import MetricContent from '../MetricContent';
 
 import * as MetricKeys from '../../client/metricKeys';
-import metricTitle from '../../client/metricTitle';
+import metricInfo from '../../client/metricInfo';
 import DataSource from '../../client/services/dataSource';
 
 var styles = require('./styles.css');
@@ -35,7 +35,7 @@ export default class DashboardActiveContent extends Component {
       this.state.endDate !== prevState.endDate ||
       this.state.currentMetric !== prevState.currentMetric) {
       this.fetchData(this.state.currentMetric, this.state.startDate, this.state.endDate);
-    } 
+    }
   }
 
   fetchData(metric, startDate, endDate) {
@@ -62,7 +62,7 @@ export default class DashboardActiveContent extends Component {
     this.setState({ currentMetric: selectedMetric, isPending:true });
   }
 
-  dateRangeChanged(startDate, endDate) { 
+  dateRangeChanged(startDate, endDate) {
     this.setState({ startDate, endDate, isPending:true });
   }
 
@@ -81,7 +81,7 @@ export default class DashboardActiveContent extends Component {
               isPending={this.state.isPending}
               dataSet={this.state.dataSet}
               metricKey={this.state.currentMetric}
-              title={metricTitle(this.state.currentMetric)}
+              title={metricInfo[this.state.currentMetric].title}
               startDate={this.state.startDate}
               endDate={this.state.endDate}
               onDateRangeChange={this.dateRangeChanged.bind(this)}
