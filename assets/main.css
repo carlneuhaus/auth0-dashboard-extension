@@ -27,3 +27,7 @@
 .chart .axis path {
   display: none;
 }
+
+.loader-wrapper > .spinner {
+  top: 25%;
+}

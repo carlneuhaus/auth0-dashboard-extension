@@ -15,17 +15,17 @@ export default class MetricContent extends Component {
   }
 
   renderLoading() {
-    return <div className={"spinner spinner-lg text-center is-auth0"}><div className={"circle"}></div></div>;
+    return <div className="loader-wrapper"><div className={"spinner spinner-center spinner-lg text-center is-auth0"}><div className={"circle"}></div></div></div>;
   }
 
   renderContent() {
     return (
       <div>
-        <MetricChart 
+        <MetricChart
           dataSet={this.props.dataSet}
           metricKey={this.props.metricKey} />
-          
-        <MetricTable 
+
+        <MetricTable
           dataSet={this.props.dataSet}
           metricKey={this.props.metricKey} />
 
