@@ -38,7 +38,7 @@ export default class MetricContent extends Component {
       <section>
         <header>
           <div>
-            <h1 className={styles.title}>{this.props.title}</h1>
+            <h3 className={styles.title}>{this.props.title}</h3>
           </div>
           <div>
             <MetricDateRangePicker

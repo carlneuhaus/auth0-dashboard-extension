@@ -80,7 +80,7 @@ export default class DashboardActiveContent extends Component {
               onSelectionChanged={this.selectionChanged.bind(this)}
               />
           </div>
-          <div className="col-xs-9">
+          <div className="col-xs-9 chart-wrapper">
             <MetricContent
               isPending={this.state.isPending}
               dataSet={this.state.dataSet}

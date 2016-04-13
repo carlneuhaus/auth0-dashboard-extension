@@ -16,7 +16,7 @@ export default class MetricSelector extends Component {
 
   render() {
     return (
-      <ul className="list-group">
+      <ul className="list-group chart-selector">
         <MenuItem name="Logins Per Day" isActive={this.props.metricKey === MetricKeys.LOGINS_PER_DAY} onClick={this.onClick.bind(this, MetricKeys.LOGINS_PER_DAY)}/>
         <MenuItem name="Logins Per Signup" isActive={this.props.metricKey === MetricKeys.LOGINS_PER_SIGNUP} onClick={this.onClick.bind(this, MetricKeys.LOGINS_PER_SIGNUP)}/>
         <MenuItem name="Geolocation" isActive={this.props.metricKey === MetricKeys.GEOLOCATION} onClick={this.onClick.bind(this, MetricKeys.GEOLOCATION)}/>
