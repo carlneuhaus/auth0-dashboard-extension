@@ -14,10 +14,10 @@
 
 
 .usageHint {
-  line-height: 50px;
+  line-height: 2;
   text-align: center;
+  margin-bottom: 0;
 }
-
 .usageHintAction {
   text-decoration: none;
 }

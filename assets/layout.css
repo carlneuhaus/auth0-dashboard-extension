@@ -47,8 +47,7 @@
 .action-dialog {
   background-color: #F5F7F9;
   font-size: 13px;
-  height: 60px;
-  padding-top: 10px;
+  padding: 1em;
 }
 
 .chart-selector .list-group-item.active {
