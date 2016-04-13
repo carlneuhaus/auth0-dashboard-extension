@@ -12,5 +12,7 @@ export default function(key) {
       return 'Cities Per Day';
     case MetricKeys.IDENTITY_PROVIDERS:
       return 'Identity Providers';
+    case MetricKeys.CONNECTION_CHURN:
+      return 'User Churn By Connection';
   }
 };

@@ -11,13 +11,13 @@ export default class MetricTable extends Component {
   }
 
   render() {
-    
-    if (!this.props.dataSet.users) {
+
+    if (!this.props.dataSet || !this.props.dataSet.users) {
       return (<div></div>);
     }
     var rows = [];
     this.props.dataSet.users.forEach(function(user){
-      rows.push(<tr><td>{user}</td></tr>);
+      rows.push(<tr key={user}><td>{user}</td></tr>);
     });
 
     return (<div>

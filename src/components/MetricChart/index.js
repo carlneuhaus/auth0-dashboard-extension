@@ -4,11 +4,12 @@ import LoginsPerDayChart from './logins_per_day_chart';
 import LoginsPerSignupChart from './logins_per_signup';
 import IdPsPerUserChart from './idps_per_user';
 import GeoLocationChart from './geo_location_chart';
+import UserChurn from './user_churn';
 
 export default class MetricChart extends Component {
   constructor(props) {
     super(props);
-    this.state = {  
+    this.state = {
       metricKey: props.metricKey,
       dataSet: props.dataSet
     };
@@ -21,12 +22,16 @@ export default class MetricChart extends Component {
       case MetricKeys.LOGINS_PER_SIGNUP: content = this.renderLoginsPerSignup(); break;
       case MetricKeys.GEOLOCATION: content = this.renderGeolocation(); break;
       case MetricKeys.IDENTITY_PROVIDERS: content = this.renderIdPs(); break;
+      case MetricKeys.CONNECTION_CHURN: content = this.renderUserChurn(); break;
     }
 
     return ( <div className="panel panel-default">
                 <div className="panel-body">{content}</div>
               </div> );
+  }
 
+  renderUserChurn(){
+    return (<UserChurn dataSet={this.props.dataSet}/>);
   }
 
   renderLoginsPerDay(){
