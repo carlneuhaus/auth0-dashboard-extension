@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import * as MetricKeys from '../../client/metricKeys';
 import LoginsPerDayChart from './logins_per_day_chart';
 import LoginsPerSignupChart from './logins_per_signup';
+import IdPsPerUserChart from './idps_per_user';
 
 export default class MetricChart extends Component {
   constructor(props) {
@@ -34,13 +35,13 @@ export default class MetricChart extends Component {
   renderLoginsPerSignup(){
     return (<LoginsPerSignupChart dataSet={this.props.dataSet} />);
   }
-  renderGeolocation(){
-    return (<div>renderGeolocation</div>);
+  renderIdPs(){
+    return (<IdPsPerUserChart dataSet={this.props.dataSet} />);
   }
   renderLogs(){
     return (<div>renderLogs</div>);
   }
-  renderIdPs(){
+  renderGeolocation(){
     return (<div>renderIdPs</div>);
   }
 };
