@@ -30,6 +30,14 @@ export default class DashboardActiveContent extends Component {
     this.fetchData(this.state.currentMetric, this.state.startDate, this.state.endDate);
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.startDate !== prevState.startDate ||
+      this.state.endDate !== prevState.endDate ||
+      this.state.currentMetric !== prevState.currentMetric) {
+      this.fetchData(this.state.currentMetric, this.state.startDate, this.state.endDate);
+    }
+  }
+
   fetchData(metric, startDate, endDate) {
     this.setState({ isPending: true });
 
