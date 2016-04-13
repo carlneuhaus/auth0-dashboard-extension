@@ -70,7 +70,6 @@ export default class DashboardActiveContent extends Component {
   }
 
   render() {
-    console.log('render',this.state);
     return (
       <div className="col-xs-12">
         <div className={styles.root  + ' row'}>

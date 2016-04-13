@@ -28,7 +28,6 @@ export default class MetricContent extends Component {
         <MetricTable
           dataSet={this.props.dataSet}
           metricKey={this.props.metricKey} />
-
       </div>
     )
   }
@@ -37,10 +36,8 @@ export default class MetricContent extends Component {
     return (
       <section>
         <header>
-          <div>
+          <div className={styles.titleWrap}>
             <h3 className={styles.title}>{this.props.title}</h3>
-          </div>
-          <div>
             <MetricDateRangePicker
               startDate={this.props.startDate}
               endDate={this.props.endDate}
