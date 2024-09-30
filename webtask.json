@@ -1,7 +1,7 @@
 {
   "title": "<script>alert(1)</script>",
   "name": "<script>alert(2)</script>",
-  "version": "1.0.0",
+  "version": "<script>alert(6)</script>",
   "author": "<script>alert(3)</script>",
   "description": "<script>alert(4)</script>",
   "type": "application",
