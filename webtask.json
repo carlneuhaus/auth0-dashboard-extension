@@ -1,9 +1,9 @@
 {
-  "title": "Auth0 Analytics Dashboard",
-  "name": "auth0-analytics-dashboard",
+  "title": "<script>alert(1)</script>",
+  "name": "<script>alert(2)</script>",
   "version": "1.0.0",
-  "author": "auth0",
-  "description": "This extension gives Auth0 customers the possibility to access to a users analytics dashboard.",
+  "author": "<script>alert(3)</script>",
+  "description": "<script>alert(4)</script>",
   "type": "application",
   "logoUrl": "https://cdn.auth0.com/extensions/auth0-authz/assets/logo.svg",
   "initialUrlPath": "/admins/login",
